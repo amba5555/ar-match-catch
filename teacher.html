@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#5b7cfa" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Teacher Panel | AR Math Catch</title>
+  </head>
+  <body class="teacher-page">
+    <main class="teacher-shell">
+      <header class="teacher-header glass">
+        <div>
+          <p class="eyebrow">Teacher Mode</p>
+          <h1>จัดการชุดคำถาม</h1>
+          <p>เรียกดู แก้ไข นำเข้า/ส่งออก และสร้างคำถามตัวอย่างด้วย AI prompt</p>
+        </div>
+        <a class="primary-button" href="/">กลับไปเล่นเกม</a>
+      </header>
+
+      <section class="teacher-grid">
+        <aside class="panel glass">
+          <h2>ชุดคำถาม</h2>
+          <select id="teacherBankSelect"></select>
+          <button id="loadBankBtn" class="secondary-button">โหลดชุดคำถาม</button>
+          <label class="upload-label">นำเข้า JSON
+            <input id="importJson" type="file" accept="application/json,.json" />
+          </label>
+          <button id="exportBankBtn" class="secondary-button">ดาวน์โหลด JSON</button>
+        </aside>
+
+        <section class="panel glass editor-panel">
+          <h2>รายละเอียด</h2>
+          <div class="form-grid three">
+            <label>วิชา <input id="subjectInput" /></label>
+            <label>ชั้น <input id="gradeInput" /></label>
+            <label>หมวด <input id="categoryInput" /></label>
+          </div>
+          <textarea id="questionsEditor" spellcheck="false"></textarea>
+          <div class="button-row">
+            <button id="validateBtn" class="primary-button">ตรวจ JSON</button>
+            <button id="addQuestionBtn" class="secondary-button">เพิ่มคำถาม</button>
+            <button id="saveLocalBtn" class="secondary-button">บันทึกในเครื่อง</button>
+          </div>
+          <p id="teacherStatus" class="status-line"></p>
+        </section>
+
+        <section class="panel glass ai-panel">
+          <h2>AI Question Prompt</h2>
+          <div class="form-grid three">
+            <label>วิชา <input id="aiSubject" value="Mathematics" /></label>
+            <label>ชั้น <input id="aiGrade" value="1" /></label>
+            <label>จำนวน <input id="aiCount" type="number" min="1" max="30" value="10" /></label>
+            <label>หมวด <input id="aiCategory" value="addition" /></label>
+          </div>
+          <button id="makePromptBtn" class="primary-button">สร้าง Prompt</button>
+          <textarea id="aiPrompt" readonly></textarea>
+          <p class="small-note">เพื่อความปลอดภัย หน้านี้ไม่เก็บ API key ให้คัดลอก prompt ไปใช้กับ Groq/OpenAI/Gemini แล้วนำ JSON กลับมานำเข้า</p>
+        </section>
+      </section>
+    </main>
+    <script type="module" src="/js/teacher.js"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+import { fitCanvas } from './utils.js';
+import { QuestionManager, DIFFICULTIES } from './questions.js';
+import { HandTracker } from './mediapipe.js';
+import { Game } from './game.js';
+import { UI } from './ui.js';
+import { AudioManager } from './audio.js';
+
+const canvas=document.querySelector('#gameCanvas');const ctx=canvas.getContext('2d');const video=document.querySelector('#cameraVideo');
+const ui=new UI();ui.init();const audio=new AudioManager();const qm=new QuestionManager();const tracker=new HandTracker(video);let last=performance.now();let size={w:0,h:0};let debug=false;
+const game=new Game({questionManager:qm,audio,onState:s=>ui.setState(s),onQuestion:q=>ui.setQuestion(q)});
+function resize(){size=fitCanvas(canvas)}window.addEventListener('resize',resize);resize();
+async function start(){try{ui.hide('start');ui.setCameraStatus('กำลังเปิดกล้อง...');debug=ui.el.debug.checked||ui.el.landmark.checked;audio.setEnabled(ui.el.sound.checked);audio.ensure();tracker.mirror=ui.el.mirror.checked;const keyStageId=ui.el.keyStage.value;const diffId=ui.el.difficulty.value;const subjectId=ui.el.subject.value;const diffCfg=DIFFICULTIES.find(d=>d.id===diffId)||DIFFICULTIES[1];await qm.load(subjectId,keyStageId,diffId);await tracker.init();ui.setCameraStatus('ยกมือขึ้นหน้ากล้องเพื่อจับคำตอบ');game.start(diffCfg);}catch(err){console.error(err);ui.show('start');ui.setCameraStatus('เปิดกล้องไม่สำเร็จ');alert('ไม่สามารถเริ่มเกมได้: '+err.message)}}
+function loop(now){const dt=Math.min((now-last)/1000,.05);last=now;const points=tracker.catchPoints(size.w,size.h);game.update(dt,size.w,size.h,points);game.draw(ctx,video,{mirror:tracker.mirror});if(debug){tracker.drawLandmarks(ctx,size.w,size.h);ctx.save();ctx.strokeStyle='rgba(255,183,3,.75)';points.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,p.r*.55,0,Math.PI*2);ctx.stroke()});ctx.restore()}requestAnimationFrame(loop)}requestAnimationFrame(loop);
+document.querySelector('#startBtn').addEventListener('click',start);document.querySelector('#pauseBtn').addEventListener('click',()=>{game.pause();ui.show('pause')});document.querySelector('#resumeBtn').addEventListener('click',()=>{ui.hide('pause');game.resume()});document.querySelector('#restartBtn').addEventListener('click',()=>{ui.hide('pause');ui.show('start');game.end();tracker.stop()});document.querySelector('#settingsBtn').addEventListener('click',()=>ui.show('settings'));document.querySelector('#closeSettingsBtn').addEventListener('click',()=>ui.hide('settings'));
+ui.el.sound.addEventListener('change',e=>audio.setEnabled(e.target.checked));ui.el.mirror.addEventListener('change',e=>tracker.mirror=e.target.checked);ui.el.landmark.addEventListener('change',e=>debug=e.target.checked);if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(console.warn));

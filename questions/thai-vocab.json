@@ -1,0 +1,6 @@
+{"subject":"Thai Language","grade":"1-3","category":"vocabulary","questions":[
+{"id":"th_001","text":"คำใดแปลว่า elephant?","answer":"ช้าง","options":["ช้าง","ม้า","ปลา","นก"],"hint":"สัตว์ตัวใหญ่ มีงวง","difficulty":"easy"},
+{"id":"th_002","text":"คำใดเป็นสีของท้องฟ้า?","answer":"ฟ้า","options":["ฟ้า","แดง","ดำ","เขียว"],"hint":"มองขึ้นไปตอนกลางวัน","difficulty":"easy"},
+{"id":"th_003","text":"คำตรงข้ามของ 'ร้อน' คือ?","answer":"เย็น","options":["เย็น","สูง","เร็ว","ดัง"],"hint":"น้ำแข็งมีความ...","difficulty":"medium"},
+{"id":"th_004","text":"เติมคำ: แม่ ___ ข้าว","answer":"หุง","options":["หุง","วิ่ง","นอน","บิน"],"hint":"การทำข้าวให้สุก","difficulty":"medium"}
+]}

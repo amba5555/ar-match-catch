@@ -1,0 +1,7 @@
+{"subject":"Mathematics","grade":"2","category":"arithmetic","questions":[
+{"id":"g2_add_001","text":"24 + 15 = ?","answer":39,"options":[39,38,40,29],"hint":"บวกหลักหน่วยก่อน","difficulty":"easy"},
+{"id":"g2_sub_001","text":"50 - 23 = ?","answer":27,"options":[27,37,26,28],"hint":"ยืมสิบ","difficulty":"medium"},
+{"id":"g2_mul_001","text":"3 × 4 = ?","answer":12,"options":[12,7,10,14],"hint":"3 กลุ่ม กลุ่มละ 4","difficulty":"easy"},
+{"id":"g2_mul_002","text":"6 × 5 = ?","answer":30,"options":[30,25,35,20],"hint":"นับทีละ 5 หกครั้ง","difficulty":"medium"},
+{"id":"g2_div_001","text":"20 ÷ 4 = ?","answer":5,"options":[5,4,6,8],"hint":"แบ่ง 20 เป็น 4 กลุ่ม","difficulty":"hard"}
+]}

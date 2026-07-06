@@ -1,0 +1,9 @@
+{"subject":"Mathematics","grade":"1","category":"addition-subtraction","questions":[
+{"id":"g1_add_001","text":"2 + 3 = ?","answer":5,"options":[5,4,6,3],"hint":"นับต่อจาก 2 อีก 3 ครั้ง","difficulty":"easy"},
+{"id":"g1_add_002","text":"4 + 1 = ?","answer":5,"options":[5,6,4,3],"hint":"เพิ่มอีก 1","difficulty":"easy"},
+{"id":"g1_sub_001","text":"7 - 2 = ?","answer":5,"options":[5,4,6,7],"hint":"เอาออก 2","difficulty":"easy"},
+{"id":"g1_add_003","text":"6 + 3 = ?","answer":9,"options":[9,8,10,7],"hint":"นับ 7 8 9","difficulty":"medium"},
+{"id":"g1_sub_002","text":"10 - 4 = ?","answer":6,"options":[6,5,7,4],"hint":"ถอยหลัง 4 ครั้ง","difficulty":"medium"},
+{"id":"g1_mix_001","text":"8 + 7 = ?","answer":15,"options":[15,14,16,13],"hint":"ทำให้ครบสิบก่อน","difficulty":"hard"},
+{"id":"g1_mix_002","text":"18 - 9 = ?","answer":9,"options":[9,8,10,7],"hint":"ครึ่งของ 18","difficulty":"hard"}
+]}
