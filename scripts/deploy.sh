@@ -4,7 +4,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 nvm use 22 > /dev/null 2>&1
 cd "$(dirname "$0")/.."
-git pull origin main
+git fetch origin main && git reset --hard origin/main
 npm install --silent
 npm run build
 docker build -t ar-match-catch .
