@@ -19,18 +19,21 @@ export const DIFFICULTIES = [
     vyMul: 0.60, swayAmp: 0.08, wobbleAmp: 0.10,
     distractorCount: 2, timePenalty: 0, comboReset: false,
     spawnRate: 0.85, maxObjects: 4,
+    scoreToStampRatio: 100,
   },
   {
     id: 'medium', name: 'ปานกลาง', maxStamps: 3,
     vyMul: 1.00, swayAmp: 0.35, wobbleAmp: 0.50,
     distractorCount: 3, timePenalty: 0, comboReset: true,
     spawnRate: 0.65, maxObjects: 6,
+    scoreToStampRatio: 75,
   },
   {
     id: 'hard', name: 'ยาก', maxStamps: 5,
     vyMul: 1.50, swayAmp: 0.90, wobbleAmp: 1.20,
     distractorCount: 5, timePenalty: 3, comboReset: true,
     spawnRate: 0.45, maxObjects: 8,
+    scoreToStampRatio: 50,
   },
 ];
 

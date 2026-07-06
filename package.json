@@ -1,5 +1,5 @@
 {
-  "name": "ar-math-catch",
+  "name": "ar-match-catch",
   "version": "1.0.0",
   "description": "Web-based AR math catch game for Thai schools using MediaPipe hand tracking.",
   "type": "module",
